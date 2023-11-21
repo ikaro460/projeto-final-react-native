@@ -2,8 +2,9 @@ import React, { useEffect, useState } from "react";
 import { api } from "../../services/api";
 import ProductCard from "../ProductCard";
 import { FlatList, StyleSheet, View } from "react-native";
+import { styles } from "./style";
 
-export default function ProductList() {
+export default function ProductList({ theme }) {
   const [produtos, setProdutos] = useState([]);
 
   const getProdutos = async () => {
@@ -21,21 +22,14 @@ export default function ProductList() {
   }, []);
 
   return (
-    <View style={styles.container}>
+    <View style={styles.listContainer}>
       <FlatList
-        style={styles.prodList}
-        renderItem={({ item }) => (
-          <ProductCard style={styles.item} produto={item} />
-        )}
+        contentContainerStyle={styles.productList}
         data={produtos}
+        renderItem={({ item }) => <ProductCard produto={item} theme={theme} />}
         keyExtractor={(p) => p.id_produto}
-      ></FlatList>
+        numColumns={2}
+      />
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  prodList: {
-    width: "100%",
-  },
-});

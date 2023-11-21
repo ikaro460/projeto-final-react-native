@@ -1,9 +1,11 @@
 import { View, Text, Image, TouchableOpacity, Pressable } from "react-native";
 import { api } from "../../services/api.jsx";
 import styles from "./style.js";
+import Icon from "react-native-vector-icons/FontAwesome";
+
 // import { useNavigation } from "@react-navigation/native";
 
-export default function ProductCard({ produto }) {
+export default function ProductCard({ produto, theme }) {
   // const navigation = useNavigation();
 
   const deletarProduto = async () => {
@@ -28,17 +30,25 @@ export default function ProductCard({ produto }) {
   // };
 
   return (
-    <View style={styles.produtoCard}>
-      {/* <View style={styles.produtoImagem}>
-        <Image source={{ uri: produto.imagem }} style={styles.imagem} />
-      </View> */}
+    <View style={[styles.produtoCard, { backgroundColor: theme.primaryWhite }]}>
+      <View style={styles.produtoImagem}>
+        <Image
+          source={{ uri: produto.imagem }}
+          style={styles.imagem}
+          resizeMode="cover"
+        />
+      </View>
       <View style={styles.stars}>
-        <Text>*****</Text>
+        <Icon name="rocket" size={30} color="#900" />
       </View>
 
       <View style={styles.produtoPreco}>
-        <Text>{produto.nome}</Text>
-        <Text>$ {produto.valor_unitario}</Text>
+        <Text style={[styles.title, { color: theme.primaryBlack }]}>
+          {produto.nome}
+        </Text>
+        <Text style={{ color: theme.primaryBlack }}>
+          $ {produto.valor_unitario}
+        </Text>
 
         <View style={styles.botoes}>
           <Pressable style={styles.botao}>

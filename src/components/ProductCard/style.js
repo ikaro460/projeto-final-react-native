@@ -2,28 +2,23 @@ import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
   produtoCard: {
-    margin: 12,
+    width: "45%",
     borderRadius: 7,
-    backgroundColor: "#ffffff", // Substitua pela cor desejada
+    margin: 10,
     padding: 15,
-    shadowColor: "#000",
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.2,
-    shadowRadius: 3,
+    boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.2)",
     elevation: 3,
-    marginBottom: 12,
   },
   produtoImagem: {
     display: "flex",
     alignItems: "center",
-    width: 262,
-    height: 315,
+    width: "100%",
+    height: 150,
     overflow: "hidden",
   },
   imagem: {
     width: "100%",
     aspectRatio: 1, // Manter a proporção da imagem
-    resizeMode: "contain",
   },
   produtoPreco: {
     color: "#000000", // Substitua pela cor desejada
@@ -35,14 +30,14 @@ const styles = StyleSheet.create({
     fontSize: 12,
     color: "#000000", // Substitua pela cor desejada
   },
-  h3: {
+  title: {
     fontFamily: "Inter",
     fontSize: 16,
     fontStyle: "normal",
     fontWeight: "600",
     lineHeight: 26,
   },
-  p: {
+  text: {
     fontFamily: "Inter",
     fontSize: 14,
     fontStyle: "normal",
