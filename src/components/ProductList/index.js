@@ -26,7 +26,13 @@ export default function ProductList({ theme }) {
       <FlatList
         contentContainerStyle={styles.productList}
         data={produtos}
-        renderItem={({ item }) => <ProductCard produto={item} theme={theme} />}
+        renderItem={({ item }) => (
+          <ProductCard
+            produto={item}
+            theme={theme}
+            avaliacao={Math.floor(Math.random() * 5) + 1}
+          />
+        )}
         keyExtractor={(p) => p.id_produto}
         numColumns={2}
       />
