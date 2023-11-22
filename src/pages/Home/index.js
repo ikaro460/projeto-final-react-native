@@ -9,7 +9,7 @@ export default function Home() {
 
   useEffect(() => {
     loadThemeChoice().then((savedTheme) => {
-      setTheme(savedTheme || lightTheme); // Assuming you have a default theme (lightTheme)
+      setTheme(savedTheme || lightTheme);
     });
   }, []);
 
