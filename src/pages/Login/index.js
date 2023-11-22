@@ -10,7 +10,7 @@ import {
   SafeAreaView,
 } from "react-native";
 import { useFocusEffect, useNavigation } from "@react-navigation/native";
-import perfil from "../../../assets/perfil.png";
+import fone from "../../../assets/fone-1.png";
 import styles from "./style.js"; // You need to create a style file for your components
 import { api } from "../../services/api.jsx";
 import AsyncStorage from "@react-native-async-storage/async-storage";
@@ -108,7 +108,7 @@ export default function Login() {
         </Text>
       </Pressable>
       <View>
-        <Image source={perfil} style={styles.image} />
+        <Image source={fone} style={styles.image} resizeMode="contain" />
       </View>
       <View style={styles.form}>
         <Text

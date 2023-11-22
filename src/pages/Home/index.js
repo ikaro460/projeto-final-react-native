@@ -1,11 +1,27 @@
-import React, { useEffect, useState } from "react";
-import { Pressable, SafeAreaView, StyleSheet, Text } from "react-native";
+import React, { useEffect, useRef, useState } from "react";
+import {
+  Image,
+  Pressable,
+  SafeAreaView,
+  ScrollView,
+  StyleSheet,
+  Text,
+  View,
+} from "react-native";
+import topoImg from "../../../assets/topo-home.jpeg";
 import ProductList from "../../components/ProductList";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { darkTheme, globalStyle, lightTheme } from "../../styles/globa";
+import { styles } from "./style";
+import { useFonts } from "expo-font";
 
 export default function Home() {
   const [theme, setTheme] = useState({});
+  const scrollViewRef = useRef();
+
+  const [fontsLoaded] = useFonts({
+    "Poppins-Regular": require("../../../assets/fonts/Poppins-Regular.ttf"),
+  });
 
   useEffect(() => {
     loadThemeChoice().then((savedTheme) => {
@@ -43,31 +59,62 @@ export default function Home() {
     );
   };
 
+  const scrollToPosition = () => {
+    if (scrollViewRef.current) {
+      console.log("po");
+      scrollViewRef.current.scrollTo({ y: 730, animated: true });
+    }
+  };
+
   return (
-    <SafeAreaView
+    <ScrollView
+      ref={scrollViewRef}
       style={[styles.container, { backgroundColor: theme.backgroundColor }]}
     >
+      <View style={styles.topo}>
+        <Image source={topoImg} style={styles.image} resizeMode="cover" />
+        <View style={styles.overlay}>
+          <Text style={styles.overlayText}>
+            Escute o{" "}
+            <Text
+              style={[styles.overlayText, { color: globalStyle.colorBlue }]}
+            >
+              melhor
+            </Text>{" "}
+            da música
+          </Text>
+          <Text
+            style={
+              (styles.overlayText,
+              {
+                fontSize: "16px",
+                fontWeight: 400,
+                fontFamily: "Poppins-Regular",
+              })
+            }
+          >
+            Ouça a música como nunca antes.
+          </Text>
+          <Pressable
+            style={[
+              styles.overlayPressable,
+              { backgroundColor: theme.primaryBlack },
+            ]}
+            onPress={scrollToPosition}
+          >
+            <Text style={[styles.pressableText, { color: theme.primaryWhite }]}>
+              Começar
+            </Text>
+          </Pressable>
+        </View>
+      </View>
+
       <Pressable style={styles.toggleThemeButton} onPress={toggleTheme}>
         <Text style={[styles.toggleThemeButton, { color: theme.primaryBlack }]}>
           Dark Mode
         </Text>
       </Pressable>
       <ProductList theme={theme} />
-    </SafeAreaView>
+    </ScrollView>
   );
 }
-
-// Export the styles
-export const styles = StyleSheet.create({
-  container: {
-    width: "100%",
-    flex: 1, // Assuming you want the background to cover the entire screen
-  },
-  toggleThemeButton: {
-    width: 50,
-    backgroundColor: globalStyle.colorOrange,
-  },
-  toggleThemeText: {
-    fontSize: 12,
-  },
-});
