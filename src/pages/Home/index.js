@@ -2,10 +2,10 @@ import React, { useEffect, useState } from "react";
 import { Pressable, SafeAreaView, StyleSheet, Text } from "react-native";
 import ProductList from "../../components/ProductList";
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import { globalStyle } from "../../styles/globa";
+import { darkTheme, globalStyle, lightTheme } from "../../styles/globa";
 
 export default function Home() {
-  const [theme, setTheme] = useState(darkTheme);
+  const [theme, setTheme] = useState({});
 
   useEffect(() => {
     loadThemeChoice().then((savedTheme) => {
@@ -56,33 +56,6 @@ export default function Home() {
     </SafeAreaView>
   );
 }
-
-// Define your theme colors
-const lightTheme = {
-  primaryWhite: "#fdfdfd",
-  primaryBlack: "#0f0f0f",
-  brancoFundo: "#f3f5f7",
-  neutral1: "#6c7275",
-  neutral2: "#343839",
-  neutral3: "#232627",
-  neutral4: "#141718",
-  shadowColor: "0px 0px 25px 0px rgba(0, 0, 0, 0.3)",
-  backgroundColor: "#fdfdfd",
-  errorMessageColor: "#ff5630",
-};
-
-const darkTheme = {
-  primaryWhite: "#0f0f0f",
-  primaryBlack: "#fefefe",
-  brancoFundo: "#101010",
-  neutral4: "#6c7275",
-  neutral3: "#343839",
-  neutral2: "#232627",
-  neutral1: "#141718",
-  shadowColor: "0px 0px 15px 0px rgba(208, 208, 208, 0.2)",
-  backgroundColor: "#0f0f0f",
-  errorMessageColor: "#ff5630",
-};
 
 // Export the styles
 export const styles = StyleSheet.create({

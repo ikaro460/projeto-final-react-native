@@ -3,6 +3,7 @@ import Home from "../pages/Home";
 import CustomDrawer from "../components/CustomDrawer";
 import Login from "../pages/Login";
 import Cadastro from "../pages/Cadastro";
+import { useNavigation } from "@react-navigation/native";
 
 const Drawer = createDrawerNavigator();
 export default function AppRouter() {
@@ -17,14 +18,14 @@ export default function AppRouter() {
       }}
     >
       <Drawer.Screen
-        name="Home"
-        component={Home}
-        options={{ title: "Início" }}
-      />
-      <Drawer.Screen
         name="Login"
         component={Login}
         options={{ title: "Login" }}
+      />
+      <Drawer.Screen
+        name="Home"
+        component={Home}
+        options={{ title: "Início" }}
       />
       <Drawer.Screen
         name="Cadastro"
