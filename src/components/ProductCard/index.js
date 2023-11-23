@@ -2,11 +2,12 @@ import { View, Text, Image, TouchableOpacity, Pressable } from "react-native";
 import { api } from "../../services/api.jsx";
 import styles from "./style.js";
 import Icon from "react-native-vector-icons/FontAwesome";
+import { useNavigation } from "@react-navigation/native";
 
 // import { useNavigation } from "@react-navigation/native";
 
 export default function ProductCard({ produto, theme, avaliacao }) {
-  // const navigation = useNavigation();
+  const navigation = useNavigation();
 
   const deletarProduto = async () => {
     try {
@@ -38,8 +39,8 @@ export default function ProductCard({ produto, theme, avaliacao }) {
     ));
   };
 
-  const onItemClick = (produto) => {
-    console.log(JSON.stringify(produto));
+  const openProduct = (produto) => {
+    navigation.navigate("Produto", { produto: produto });
   };
 
   return (
@@ -68,7 +69,7 @@ export default function ProductCard({ produto, theme, avaliacao }) {
         <View style={styles.botoes}>
           <Pressable
             style={[styles.botao, { backgroundColor: theme.primaryBlack }]}
-            onPress={() => onItemClick(produto)}
+            onPress={() => openProduct(produto)}
           >
             <Text style={{ color: theme.primaryWhite }}>Ver mais</Text>
           </Pressable>

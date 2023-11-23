@@ -4,6 +4,7 @@ import CustomDrawer from "../components/CustomDrawer";
 import Login from "../pages/Login";
 import Cadastro from "../pages/Cadastro";
 import { useNavigation } from "@react-navigation/native";
+import Product from "../pages/Product";
 
 const Drawer = createDrawerNavigator();
 export default function AppRouter() {
@@ -21,6 +22,11 @@ export default function AppRouter() {
         name="Cadastro"
         component={Cadastro}
         options={{ title: "Cadastro" }}
+      />
+      <Drawer.Screen
+        name="Produto"
+        component={Product}
+        options={{ title: "Produto" }}
       />
       <Drawer.Screen
         name="Login"
