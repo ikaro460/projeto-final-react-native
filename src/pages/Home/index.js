@@ -15,10 +15,21 @@ import { darkTheme, globalStyle, lightTheme } from "../../styles/globa";
 import { styles } from "./style";
 import { useFonts } from "expo-font";
 import { AuthContext } from "../../context/AuthContext";
+import { useFocusEffect, useNavigation } from "@react-navigation/native";
 
 export default function Home() {
   const scrollViewRef = useRef();
-  const { theme, toggleTheme } = useContext(AuthContext);
+  const navigation = useNavigation();
+  const { theme, toggleTheme, cliente } = useContext(AuthContext);
+
+  useFocusEffect(
+    React.useCallback(() => {
+      if (!cliente) {
+        navigation.navigate("Login");
+      }
+    }),
+    []
+  );
 
   const [fontsLoaded] = useFonts({
     "Poppins-Regular": require("../../../assets/fonts/Poppins-Regular.ttf"),
