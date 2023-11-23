@@ -4,9 +4,13 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
   },
+
+  image: {
+    height: 200,
+  },
+
   form: {
     margin: 32,
-    marginLeft: 11,
   },
   text: {
     fontFamily: "Inter, sans-serif",

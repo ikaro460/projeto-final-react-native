@@ -7,9 +7,10 @@ import {
   Image,
   TouchableOpacity,
   Pressable,
+  SafeAreaView,
 } from "react-native";
 import { useFocusEffect, useNavigation } from "@react-navigation/native";
-import saxofone from "../../../assets/perfil.png";
+import fone from "../../../assets/fone-1.png";
 import styles from "./style.js"; // You need to create a style file for your components
 import { api } from "../../services/api.jsx";
 import AsyncStorage from "@react-native-async-storage/async-storage";
@@ -37,16 +38,6 @@ export default function Login() {
       return user ? navigation.navigate("Home") : null;
     } catch (error) {
       console.error("User not logged yet:", error);
-    }
-  };
-
-  const loadThemeChoice = async () => {
-    try {
-      const savedTheme = await AsyncStorage.getItem("theme");
-      return savedTheme ? JSON.parse(savedTheme) : null;
-    } catch (error) {
-      console.error("Error loading theme choice:", error);
-      return null;
     }
   };
 
@@ -91,6 +82,16 @@ export default function Login() {
     setCliente(loginData);
   };
 
+  const loadThemeChoice = async () => {
+    try {
+      const savedTheme = await AsyncStorage.getItem("theme");
+      return savedTheme ? JSON.parse(savedTheme) : null;
+    } catch (error) {
+      console.error("Error loading theme choice:", error);
+      return null;
+    }
+  };
+
   const toggleTheme = () => {
     setTheme((prevTheme) =>
       prevTheme === lightTheme ? darkTheme : lightTheme
@@ -98,7 +99,7 @@ export default function Login() {
   };
 
   return (
-    <View
+    <SafeAreaView
       style={[styles.container, { backgroundColor: theme.backgroundColor }]}
     >
       <Pressable style={styles.toggleThemeButton} onPress={toggleTheme}>
@@ -106,7 +107,9 @@ export default function Login() {
           Dark Mode
         </Text>
       </Pressable>
-      <Image source={saxofone} style={styles.image} />
+      <View>
+        <Image source={fone} style={styles.image} resizeMode="contain" />
+      </View>
       <View style={styles.form}>
         <Text
           style={[
@@ -162,6 +165,6 @@ export default function Login() {
           </Text>
         </Pressable>
       </View>
-    </View>
+    </SafeAreaView>
   );
 }

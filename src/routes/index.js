@@ -11,12 +11,17 @@ export default function AppRouter() {
     <Drawer.Navigator
       drawerContent={CustomDrawer}
       screenOptions={{
-        drawerActiveBackgroundColor: "#00dae5",
+        drawerActiveBackgroundColor: "#0f0f0f",
         drawerInactiveBackgroundColor: "#f1f1f1",
         drawerActiveTintColor: "#fff",
         drawerInactiveTintColor: "#000",
       }}
     >
+      <Drawer.Screen
+        name="Cadastro"
+        component={Cadastro}
+        options={{ title: "Cadastro" }}
+      />
       <Drawer.Screen
         name="Login"
         component={Login}
@@ -26,11 +31,6 @@ export default function AppRouter() {
         name="Home"
         component={Home}
         options={{ title: "Início" }}
-      />
-      <Drawer.Screen
-        name="Cadastro"
-        component={Cadastro}
-        options={{ title: "Cadastro" }}
       />
     </Drawer.Navigator>
   );

@@ -38,6 +38,10 @@ export default function ProductCard({ produto, theme, avaliacao }) {
     ));
   };
 
+  const onItemClick = (produto) => {
+    console.log(JSON.stringify(produto));
+  };
+
   return (
     <View style={[styles.produtoCard, { backgroundColor: theme.primaryWhite }]}>
       <View style={styles.produtoImagem}>
@@ -64,6 +68,7 @@ export default function ProductCard({ produto, theme, avaliacao }) {
         <View style={styles.botoes}>
           <Pressable
             style={[styles.botao, { backgroundColor: theme.primaryBlack }]}
+            onPress={() => onItemClick(produto)}
           >
             <Text style={{ color: theme.primaryWhite }}>Ver mais</Text>
           </Pressable>

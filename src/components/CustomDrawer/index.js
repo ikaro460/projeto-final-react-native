@@ -14,6 +14,7 @@ export default function CustomDrawer(props) {
           height: 85,
           alignItems: "center",
           justifyContent: "center",
+          marginBottom: 24,
         }}
       >
         <Image
@@ -21,9 +22,7 @@ export default function CustomDrawer(props) {
           style={{ width: 65, height: 65 }}
         />
 
-        <Text style={{ color: "#000", fontSize: 20, marginTop: 8 }}>
-          Bem Vindo !
-        </Text>
+        <Text style={{ color: "#000", fontSize: 20 }}>Bem Vindo !</Text>
       </View>
       <DrawerItemList {...props} />
     </DrawerContentScrollView>
