@@ -25,11 +25,13 @@ export default function Login() {
   const [mensagemErro, setMensagemErro] = useState("");
   const navigation = useNavigation();
 
-  useFocusEffect(() => {
-    getUsuarios();
-    loadThemeChoice();
-    loadUser();
-  });
+  useFocusEffect(
+    React.useCallback(() => {
+      getUsuarios();
+      loadThemeChoice();
+      loadUser();
+    }, [])
+  );
 
   const loadUser = async () => {
     try {
