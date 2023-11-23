@@ -12,11 +12,14 @@ import { useEffect, useState } from "react";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import AppRouter from "./src/routes";
 import { NavigationContainer } from "@react-navigation/native";
+import { AuthProvider } from "./src/context/AuthContext";
 
 export default function App() {
   return (
-    <NavigationContainer>
-      <AppRouter />
-    </NavigationContainer>
+    <AuthProvider>
+      <NavigationContainer>
+        <AppRouter />
+      </NavigationContainer>
+    </AuthProvider>
   );
 }

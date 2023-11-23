@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useContext, useEffect, useRef } from "react";
 import {
   Image,
   Pressable,
@@ -14,50 +14,15 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import { darkTheme, globalStyle, lightTheme } from "../../styles/globa";
 import { styles } from "./style";
 import { useFonts } from "expo-font";
+import { AuthContext } from "../../context/AuthContext";
 
 export default function Home() {
-  const [theme, setTheme] = useState({});
   const scrollViewRef = useRef();
+  const { theme, toggleTheme } = useContext(AuthContext);
 
   const [fontsLoaded] = useFonts({
     "Poppins-Regular": require("../../../assets/fonts/Poppins-Regular.ttf"),
   });
-
-  useEffect(() => {
-    loadThemeChoice().then((savedTheme) => {
-      setTheme(savedTheme || lightTheme);
-    });
-  }, []);
-
-  useEffect(() => {
-    if (theme) {
-      saveThemeChoice(theme);
-    }
-  }, [theme]);
-
-  const saveThemeChoice = async (theme) => {
-    try {
-      await AsyncStorage.setItem("theme", JSON.stringify(theme));
-    } catch (error) {
-      console.error("Error saving theme choice:", error);
-    }
-  };
-
-  const loadThemeChoice = async () => {
-    try {
-      const savedTheme = await AsyncStorage.getItem("theme");
-      return savedTheme ? JSON.parse(savedTheme) : null;
-    } catch (error) {
-      console.error("Error loading theme choice:", error);
-      return null;
-    }
-  };
-
-  const toggleTheme = () => {
-    setTheme((prevTheme) =>
-      prevTheme === lightTheme ? darkTheme : lightTheme
-    );
-  };
 
   const scrollToPosition = () => {
     if (scrollViewRef.current) {
