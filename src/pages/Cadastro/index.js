@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import {
   Text,
   View,
@@ -16,22 +16,17 @@ import { styles } from "./style";
 import { useFocusEffect, useNavigation } from "@react-navigation/native";
 import { darkTheme, globalStyle, lightTheme } from "../../styles/globa";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import { AuthContext } from "../../context/AuthContext";
 
 export default function Cadastro() {
-  const [theme, setTheme] = useState(lightTheme);
+  const { theme, toggleTheme } = useContext(AuthContext);
+  const navigation = useNavigation();
+  const [mensagemErro, setMensagemErro] = useState("");
   const [formData, setFormData] = useState({
     nome: "",
     email: "",
     senha: "",
     pedidos: [],
-  });
-
-  const navigation = useNavigation();
-
-  const [mensagemErro, setMensagemErro] = useState("");
-
-  useFocusEffect(() => {
-    loadThemeChoice();
   });
 
   useEffect(() => {
@@ -68,22 +63,6 @@ export default function Cadastro() {
           "Ocorreu um erro ao cadastrar. Tente novamente mais tarde."
         );
       }
-    }
-  };
-
-  const toggleTheme = () => {
-    setTheme((prevTheme) =>
-      prevTheme === lightTheme ? darkTheme : lightTheme
-    );
-  };
-
-  const loadThemeChoice = async () => {
-    try {
-      const savedTheme = await AsyncStorage.getItem("theme");
-      return savedTheme ? JSON.parse(savedTheme) : null;
-    } catch (error) {
-      console.error("Error loading theme choice:", error);
-      return null;
     }
   };
 

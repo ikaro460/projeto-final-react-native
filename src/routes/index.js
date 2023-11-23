@@ -19,6 +19,11 @@ export default function AppRouter() {
       }}
     >
       <Drawer.Screen
+        name="Home"
+        component={Home}
+        options={{ title: "Início" }}
+      />
+      <Drawer.Screen
         name="Cadastro"
         component={Cadastro}
         options={{ title: "Cadastro" }}
@@ -32,11 +37,6 @@ export default function AppRouter() {
         name="Login"
         component={Login}
         options={{ title: "Login" }}
-      />
-      <Drawer.Screen
-        name="Home"
-        component={Home}
-        options={{ title: "Início" }}
       />
     </Drawer.Navigator>
   );

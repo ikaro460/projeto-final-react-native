@@ -15,9 +15,10 @@ import styles from "./style.js"; // You need to create a style file for your com
 import { api } from "../../services/api.jsx";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { darkTheme, globalStyle, lightTheme } from "../../styles/globa.js";
+import { AuthContext } from "../../context/AuthContext.js";
 
 export default function Login() {
-  const [theme, setTheme] = useState(lightTheme);
+  const { theme, toggleTheme } = useContext(AuthContext);
   const [login, setLogin] = useState("");
   const [senha, setSenha] = useState("");
   const [users, setUsers] = useState([]);
@@ -25,11 +26,12 @@ export default function Login() {
   const [mensagemErro, setMensagemErro] = useState("");
   const navigation = useNavigation();
 
-  useFocusEffect(() => {
-    getUsuarios();
-    loadThemeChoice();
-    loadUser();
-  });
+  useFocusEffect(
+    React.useCallback(() => {
+      getUsuarios();
+      loadUser();
+    }, [])
+  );
 
   const loadUser = async () => {
     try {
@@ -80,22 +82,6 @@ export default function Login() {
   const logar = async (loginData) => {
     await AsyncStorage.setItem("info", JSON.stringify(loginData));
     setCliente(loginData);
-  };
-
-  const loadThemeChoice = async () => {
-    try {
-      const savedTheme = await AsyncStorage.getItem("theme");
-      return savedTheme ? JSON.parse(savedTheme) : null;
-    } catch (error) {
-      console.error("Error loading theme choice:", error);
-      return null;
-    }
-  };
-
-  const toggleTheme = () => {
-    setTheme((prevTheme) =>
-      prevTheme === lightTheme ? darkTheme : lightTheme
-    );
   };
 
   return (
