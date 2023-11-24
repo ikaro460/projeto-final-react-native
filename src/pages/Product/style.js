@@ -8,15 +8,15 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   image: {
-    display: "flex",
-    width: 311,
-    height: 414,
+    display: "inline-flex",
+    width: 312,
+    height: 416,
     flexDirection: "column",
     justifyContent: "center",
-    flexShrink: 0,
+    alignItems: "center",
   },
   text: {
-    fontFamily: "Inter-Regular",
+    fontFamily: "Inter",
   },
 
   name: {
