@@ -1,4 +1,5 @@
 import { StyleSheet } from "react-native";
+import { globalStyle } from "../../styles/global";
 
 const styles = StyleSheet.create({
   produtoCard: {
@@ -25,20 +26,20 @@ const styles = StyleSheet.create({
     transition: 0.2,
   },
   stars: {
-    display: "flex",
+    flexDirection: "row",
     letterSpacing: 2,
     fontSize: 12,
     color: "#000000", // Substitua pela cor desejada
   },
   title: {
-    fontFamily: "Inter",
+    fontFamily: "Inter-Bold",
     fontSize: 16,
     fontStyle: "normal",
     fontWeight: "600",
     lineHeight: 26,
   },
   text: {
-    fontFamily: "Inter",
+    fontFamily: "Inter-Regular",
     fontSize: 14,
     fontStyle: "normal",
     fontWeight: "600",
@@ -50,12 +51,8 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
   },
   botao: {
-    color: "#ffffff", // Substitua pela cor desejada
     transition: 0.2,
-    fontWeight: "500",
-    letterSpacing: 1,
-    display: "flex",
-    width: "30%",
+    width: "100%",
     height: 48,
     padding: 10,
     marginVertical: 5,
@@ -64,7 +61,11 @@ const styles = StyleSheet.create({
     borderRadius: 4,
     borderWidth: 1,
     borderColor: "transparent",
-    backgroundColor: "#neutral-4", // Substitua pela cor desejada
+  },
+  botaoText: {
+    fontFamily: "Inter-Regular",
+    letterSpacing: 1,
+    fontWeight: "500",
   },
   botaoHover: {
     borderColor: "#color-red", // Substitua pela cor desejada

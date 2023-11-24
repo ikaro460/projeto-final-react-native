@@ -2,19 +2,18 @@ import { View, Text, Image, TouchableOpacity, Pressable } from "react-native";
 import { api } from "../../services/api.jsx";
 import styles from "./style.js";
 import Icon from "react-native-vector-icons/FontAwesome";
+import { useNavigation } from "@react-navigation/native";
 
 // import { useNavigation } from "@react-navigation/native";
 
-export default function ProductCard({ produto, theme }) {
-  // const navigation = useNavigation();
+export default function ProductCard({ produto, theme, avaliacao }) {
+  const navigation = useNavigation();
 
   const deletarProduto = async () => {
     try {
       const response = await api.delete(`/produto/${produto.id_produto}`);
 
       // Handle success
-      console.log(`Item with ID ${produto.id_produto} deleted successfully`);
-      console.log("Response:", response.data);
       getProdutos();
     } catch (error) {
       // Handle error
@@ -25,9 +24,20 @@ export default function ProductCard({ produto, theme }) {
     }
   };
 
-  // const editarProduto = () => {
-  //   navigation.navigate("EditarProduto", { id_produto: produto.id_produto });
-  // };
+  const renderStars = () => {
+    // Create an array of length numberOfStars and fill it with placeholders
+    const starsArray = Array.from({ length: avaliacao }, (_, index) => index);
+
+    return starsArray.map((starIndex) => (
+      <Icon key={starIndex} name="star" size={10} color={theme.neutral4} />
+    ));
+  };
+
+  const openProduct = (produto) => {
+    navigation.navigate("Produto", {
+      produto: produto,
+    });
+  };
 
   return (
     <View style={[styles.produtoCard, { backgroundColor: theme.primaryWhite }]}>
@@ -38,27 +48,26 @@ export default function ProductCard({ produto, theme }) {
           resizeMode="cover"
         />
       </View>
-      <View style={styles.stars}>
-        <Icon name="rocket" size={30} color="#900" />
-      </View>
+      <View style={styles.stars}>{renderStars()}</View>
 
       <View style={styles.produtoPreco}>
-        <Text style={[styles.title, { color: theme.primaryBlack }]}>
+        <Text
+          numberOfLines={1}
+          ellipsizeMode="tail"
+          style={[styles.title, { color: theme.primaryBlack }]}
+        >
           {produto.nome}
         </Text>
-        <Text style={{ color: theme.primaryBlack }}>
+        <Text style={[styles.text, { color: theme.primaryBlack }]}>
           $ {produto.valor_unitario}
         </Text>
 
         <View style={styles.botoes}>
-          <Pressable style={styles.botao}>
-            {/* Add your pencil icon here */}
-          </Pressable>
           <Pressable
-            style={[styles.botao, styles.red]}
-            onPress={deletarProduto}
+            style={[styles.botao, { backgroundColor: theme.primaryBlack }]}
+            onPress={() => openProduct(produto)}
           >
-            {/* Add your trash icon here */}
+            <Text style={{ color: theme.primaryWhite }}>Ver mais</Text>
           </Pressable>
         </View>
       </View>
