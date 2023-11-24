@@ -35,7 +35,7 @@ export const darkTheme = {
   neutral4: "#6c7275",
   neutral3: "#343839",
   neutral2: "#232627",
-  neutral1: "#141718",
+  neutral1: "#f3f5f7",
   shadowColor: "0px 0px 15px 0px rgba(208, 208, 208, 0.2)",
   backgroundColor: "#0f0f0f",
   errorMessageColor: "#ff5630",

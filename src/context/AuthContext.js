@@ -1,7 +1,7 @@
 import React, { createContext, useState, useEffect } from "react";
 import AsyncStorage from "@react-native-async-storage/async-storage"; // Import AsyncStorage for React Native
 import axios from "axios"; // Import axios for HTTP requests
-import { lightTheme, darkTheme } from "../styles/globa";
+import { lightTheme, darkTheme } from "../styles/global";
 import { useNavigation } from "@react-navigation/native";
 import { api } from "../services/api";
 

@@ -14,7 +14,7 @@ import perfil from "../../../assets/perfil.png";
 import { api } from "../../services/api";
 import { styles } from "./style";
 import { useFocusEffect, useNavigation } from "@react-navigation/native";
-import { darkTheme, globalStyle, lightTheme } from "../../styles/globa";
+import { darkTheme, globalStyle, lightTheme } from "../../styles/global";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { AuthContext } from "../../context/AuthContext";
 
@@ -74,7 +74,7 @@ export default function Cadastro() {
         </Text>
       </Pressable>
 
-      <View>
+      <View style={styles.imgContainer}>
         <Image source={perfil} style={styles.image} />
       </View>
       <View style={styles.form}>
@@ -93,22 +93,38 @@ export default function Cadastro() {
           Cadastro
         </Text>
 
+        <View style={styles.greyTxtCtn}>
+          <Text
+            style={[
+              styles.text,
+              styles.greyText,
+              // { color: theme.neutral1 }
+            ]}
+          >
+            Já possui uma conta?
+          </Text>
+          <Pressable onPress={() => navigation.navigate("Login")}>
+            <Text style={[styles.link, { color: globalStyle.colorGreen }]}>
+              Entre agora!
+            </Text>
+          </Pressable>
+        </View>
         <TextInput
-          style={[styles.input, styles.text]}
+          style={[styles.input, styles.text, { color: theme.primaryBlack }]}
           placeholder="Seu nome completo"
           placeholderTextColor={theme.neutral1}
           value={formData.nome}
           onChange={(e) => setFormData({ ...formData, nome: e.target.value })}
         />
         <TextInput
-          style={[styles.input, styles.text]}
+          style={[styles.input, styles.text, { color: theme.primaryBlack }]}
           placeholder="Seu email de acesso"
           placeholderTextColor={theme.neutral1}
           value={formData.email}
           onChange={(e) => setFormData({ ...formData, email: e.target.value })}
         />
         <TextInput
-          style={[styles.input, styles.text]}
+          style={[styles.input, styles.text, { color: theme.primaryBlack }]}
           placeholder="Senha"
           placeholderTextColor={theme.neutral1}
           value={formData.senha}

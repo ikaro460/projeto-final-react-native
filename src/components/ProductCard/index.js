@@ -14,8 +14,6 @@ export default function ProductCard({ produto, theme, avaliacao }) {
       const response = await api.delete(`/produto/${produto.id_produto}`);
 
       // Handle success
-      console.log(`Item with ID ${produto.id_produto} deleted successfully`);
-      console.log("Response:", response.data);
       getProdutos();
     } catch (error) {
       // Handle error

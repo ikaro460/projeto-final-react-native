@@ -3,19 +3,15 @@ import {
   View,
   Text,
   TextInput,
-  Button,
   Image,
-  TouchableOpacity,
   Pressable,
-  SafeAreaView,
+  ScrollView,
 } from "react-native";
 import { useFocusEffect, useNavigation } from "@react-navigation/core";
 import fone from "../../../assets/fone-1.png";
-import styles from "./style.js"; // You need to create a style file for your components
-import { api } from "../../services/api.jsx";
-import AsyncStorage from "@react-native-async-storage/async-storage";
-import { darkTheme, globalStyle, lightTheme } from "../../styles/globa.js";
+import { darkTheme, globalStyle, lightTheme } from "../../styles/global.js";
 import { AuthContext } from "../../context/AuthContext.js";
+import { styles } from "./style.js";
 
 export default function Login() {
   const { theme, toggleTheme, logar, loadClienteFromStorage, users, cliente } =
@@ -60,17 +56,17 @@ export default function Login() {
   };
 
   return (
-    <SafeAreaView
+    <ScrollView
       style={[styles.container, { backgroundColor: theme.backgroundColor }]}
     >
       <Pressable style={styles.toggleThemeButton} onPress={toggleTheme}>
-        <Text style={[styles.toggleThemeButton, { color: theme.primaryBlack }]}>
-          Dark Mode
-        </Text>
+        <Text style={{ color: theme.primaryBlack }}>Dark Mode</Text>
       </Pressable>
-      <View>
+
+      <View style={styles.imgContainer}>
         <Image source={fone} style={styles.image} resizeMode="contain" />
       </View>
+
       <View style={styles.form}>
         <Text
           style={[
@@ -86,20 +82,17 @@ export default function Login() {
         >
           Login
         </Text>
-        <Text style={[styles.text, styles.greyText, { color: theme.neutral1 }]}>
-          Não tem conta ainda?{" "}
+
+        <View style={styles.greyTxtCtn}>
+          <Text style={[styles.greyText, { color: theme.neutral1 }]}>
+            Não tem conta ainda?
+          </Text>
           <Pressable onPress={() => navigation.navigate("Cadastro")}>
-            <Text
-              style={[
-                styles.link,
-                styles.text,
-                { color: globalStyle.colorGreen },
-              ]}
-            >
+            <Text style={[styles.link, { color: globalStyle.colorGreen }]}>
               Cadastre-se
             </Text>
           </Pressable>
-        </Text>
+        </View>
         <View style={styles.inputs}>
           <TextInput
             style={[styles.input, styles.text]}
@@ -126,6 +119,6 @@ export default function Login() {
           </Text>
         </Pressable>
       </View>
-    </SafeAreaView>
+    </ScrollView>
   );
 }
