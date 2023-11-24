@@ -25,7 +25,7 @@ export default function Home() {
 
   const scrollToPosition = () => {
     if (scrollViewRef.current) {
-      scrollViewRef.current.scrollTo({ y: 730, animated: true });
+      scrollViewRef.current.scrollTo({ y: 800, animated: true });
     }
   };
 

@@ -16,11 +16,11 @@ export const styles = StyleSheet.create({
   imgContainer: {
     height: 800,
     backgroundColor: "pink",
-    justifyContent: "center",
     alignItems: "center",
     overflow: "hidden",
   },
   image: {
+    height: "100%",
     aspectRatio: 1,
     resizeMode: "cover",
   },
