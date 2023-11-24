@@ -40,7 +40,9 @@ export default function ProductCard({ produto, theme, avaliacao }) {
   };
 
   const openProduct = (produto) => {
-    navigation.navigate("Produto", { produto: produto });
+    navigation.navigate("Produto", {
+      produto: produto,
+    });
   };
 
   return (

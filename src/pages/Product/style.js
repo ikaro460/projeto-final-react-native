@@ -20,7 +20,7 @@ const styles = StyleSheet.create({
   },
 
   name: {
-    fontFamily: "Poppins",
+    fontFamily: "Poppins-Regular",
     fontSize: 40,
     fontStyle: "normal",
     fontWeight: 500,
@@ -28,7 +28,7 @@ const styles = StyleSheet.create({
     letterSpacing: -0.4,
   },
   price: {
-    fontFamily: "Poppins",
+    fontFamily: "Poppins-Regular",
     fontSize: 28,
     fontStyle: "normal",
     fontWeight: 500,
@@ -36,10 +36,10 @@ const styles = StyleSheet.create({
   },
 
   title: {
-    fontFamily: "Poppins",
-    fontSize: "40px",
+    fontFamily: "Poppins-Regular",
+    fontSize: 40,
     fontWeight: 500,
-    lineHeight: "44px",
+    lineHeight: 44,
     letterSpacing: -0.4,
     marginBottom: "24px",
   },

@@ -1,17 +1,8 @@
-import React, { useContext, useEffect, useRef } from "react";
-import {
-  Image,
-  Pressable,
-  SafeAreaView,
-  ScrollView,
-  StyleSheet,
-  Text,
-  View,
-} from "react-native";
+import React, { useContext, useRef } from "react";
+import { Image, Pressable, ScrollView, Text, View } from "react-native";
 import topoImg from "../../../assets/topo-home.jpeg";
 import ProductList from "../../components/ProductList";
-import AsyncStorage from "@react-native-async-storage/async-storage";
-import { darkTheme, globalStyle, lightTheme } from "../../styles/globa";
+import { globalStyle } from "../../styles/globa";
 import { styles } from "./style";
 import { useFonts } from "expo-font";
 import { AuthContext } from "../../context/AuthContext";
@@ -19,21 +10,19 @@ import { useFocusEffect, useNavigation } from "@react-navigation/native";
 
 export default function Home() {
   const scrollViewRef = useRef();
+  const { theme, toggleTheme, cliente, loadClienteFromStorage, deslogar } =
+    useContext(AuthContext);
   const navigation = useNavigation();
-  const { theme, toggleTheme, cliente } = useContext(AuthContext);
 
   useFocusEffect(
     React.useCallback(() => {
+      console.log(cliente);
+      loadClienteFromStorage();
       if (!cliente) {
-        navigation.navigate("Login");
+        navigation.navigate("LoginCadastro", { screen: "Login" });
       }
-    }),
-    []
+    })
   );
-
-  const [fontsLoaded] = useFonts({
-    "Poppins-Regular": require("../../../assets/fonts/Poppins-Regular.ttf"),
-  });
 
   const scrollToPosition = () => {
     if (scrollViewRef.current) {
@@ -50,6 +39,9 @@ export default function Home() {
       <View style={styles.topo}>
         <Image source={topoImg} style={styles.image} resizeMode="cover" />
         <View style={styles.overlay}>
+          <Pressable onPress={deslogar}>
+            <Text>Sair</Text>
+          </Pressable>
           <Text style={styles.overlayText}>
             Escute o{" "}
             <Text
@@ -63,7 +55,7 @@ export default function Home() {
             style={
               (styles.overlayText,
               {
-                fontSize: "16px",
+                fontSize: 16,
                 fontWeight: 400,
                 fontFamily: "Poppins-Regular",
               })

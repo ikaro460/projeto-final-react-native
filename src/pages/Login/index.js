@@ -9,7 +9,7 @@ import {
   Pressable,
   SafeAreaView,
 } from "react-native";
-import { useFocusEffect, useNavigation } from "@react-navigation/native";
+import { useFocusEffect, useNavigation } from "@react-navigation/core";
 import fone from "../../../assets/fone-1.png";
 import styles from "./style.js"; // You need to create a style file for your components
 import { api } from "../../services/api.jsx";
@@ -18,54 +18,36 @@ import { darkTheme, globalStyle, lightTheme } from "../../styles/globa.js";
 import { AuthContext } from "../../context/AuthContext.js";
 
 export default function Login() {
-  const { theme, toggleTheme } = useContext(AuthContext);
+  const { theme, toggleTheme, logar, loadClienteFromStorage, users, cliente } =
+    useContext(AuthContext);
   const [login, setLogin] = useState("");
   const [senha, setSenha] = useState("");
-  const [users, setUsers] = useState([]);
-  const [cliente, setCliente] = useState();
   const [mensagemErro, setMensagemErro] = useState("");
   const navigation = useNavigation();
 
   useFocusEffect(
     React.useCallback(() => {
-      getUsuarios();
-      loadUser();
-    }, [])
+      console.log(cliente);
+      loadClienteFromStorage();
+      if (!!cliente) {
+        navigation.navigate("Main", { screen: "Home" });
+      }
+    })
   );
 
-  const loadUser = async () => {
-    try {
-      const user = await AsyncStorage.getItem("info");
-      console.log(JSON.parse(user));
-      return user ? navigation.navigate("Home") : null;
-    } catch (error) {
-      console.error("User not logged yet:", error);
-    }
-  };
-
-  async function getUsuarios() {
-    try {
-      const { data } = await api.get("cliente");
-      setUsers(data);
-    } catch (err) {
-      console.log(err);
-    }
-  }
-
   const entrar = () => {
-    getUsuarios();
+    console.log(users);
     const matchingClientes = users.filter((cliente) => {
       if (login === cliente.email && senha === cliente.senha) {
         const info = {
-          login: login,
+          email: login,
           nome: cliente.nome,
           senha: senha,
         };
 
-        logar(info);
         setLogin("");
         setSenha("");
-        navigation.navigate("Home", { nome: cliente.nome });
+        logar(info);
         return true; // Cliente válido
       } else {
         return false; // Cliente inválido
@@ -77,11 +59,6 @@ export default function Login() {
     } else if (matchingClientes.length === 0) {
       setMensagemErro("Login ou senha inválidos!");
     }
-  };
-
-  const logar = async (loginData) => {
-    await AsyncStorage.setItem("info", JSON.stringify(loginData));
-    setCliente(loginData);
   };
 
   return (
@@ -113,7 +90,7 @@ export default function Login() {
         </Text>
         <Text style={[styles.text, styles.greyText, { color: theme.neutral1 }]}>
           Não tem conta ainda?{" "}
-          <TouchableOpacity onPress={() => navigation.navigate("Cadastro")}>
+          <Pressable onPress={() => navigation.navigate("Cadastro")}>
             <Text
               style={[
                 styles.link,
@@ -123,7 +100,7 @@ export default function Login() {
             >
               Cadastre-se
             </Text>
-          </TouchableOpacity>
+          </Pressable>
         </Text>
         <View style={styles.inputs}>
           <TextInput

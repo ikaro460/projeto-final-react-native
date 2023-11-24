@@ -96,7 +96,21 @@ export default function Cadastro() {
         <Text
           style={[styles.title, styles.text, { color: theme.primaryBlack }]}
         >
-          Cadastro
+          Cadastrar Produto
+        </Text>
+        <Text style={[styles.text, styles.greyText, { color: theme.neutral1 }]}>
+          Já possui uma conta?{" "}
+          <Pressable onPress={() => navigation.navigate("Cadastro")}>
+            <Text
+              style={[
+                styles.link,
+                styles.text,
+                { color: globalStyle.colorGreen },
+              ]}
+            >
+              Entre agora!
+            </Text>
+          </Pressable>
         </Text>
 
         <TextInput

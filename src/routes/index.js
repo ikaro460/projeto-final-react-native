@@ -5,9 +5,39 @@ import Login from "../pages/Login";
 import Cadastro from "../pages/Cadastro";
 import { useNavigation } from "@react-navigation/native";
 import Product from "../pages/Product";
+import { createStackNavigator } from "@react-navigation/stack";
+import CadastroProduto from "../pages/CadastroProduto";
+import { Pressable, Text } from "react-native";
 
+const Stack = createStackNavigator(); // Create a stack navigator
 const Drawer = createDrawerNavigator();
-export default function AppRouter() {
+
+function LoginCadastro() {
+  return (
+    <Drawer.Navigator
+      drawerContent={CustomDrawer}
+      screenOptions={{
+        drawerActiveBackgroundColor: "#0f0f0f",
+        drawerInactiveBackgroundColor: "#f1f1f1",
+        drawerActiveTintColor: "#fff",
+        drawerInactiveTintColor: "#000",
+      }}
+    >
+      <Drawer.Screen
+        name="Cadastro"
+        component={Cadastro}
+        options={{ title: "Cadastro" }}
+      />
+      <Drawer.Screen
+        name="Login"
+        component={Login}
+        options={{ title: "Login" }}
+      />
+    </Drawer.Navigator>
+  );
+}
+
+function Main() {
   return (
     <Drawer.Navigator
       drawerContent={CustomDrawer}
@@ -24,20 +54,37 @@ export default function AppRouter() {
         options={{ title: "Início" }}
       />
       <Drawer.Screen
-        name="Cadastro"
-        component={Cadastro}
-        options={{ title: "Cadastro" }}
+        name="CadastroProduto"
+        component={CadastroProduto}
+        options={{ title: "Cadastrar Produto" }}
       />
       <Drawer.Screen
-        name="Produto"
-        component={Product}
-        options={{ title: "Produto" }}
-      />
-      <Drawer.Screen
-        name="Login"
-        component={Login}
-        options={{ title: "Login" }}
+        name="Sobre"
+        component={Home}
+        options={{ title: "Sobre o projeto" }}
       />
     </Drawer.Navigator>
+  );
+}
+
+export default function AppRouter() {
+  return (
+    <Stack.Navigator>
+      <Stack.Screen
+        name="Main"
+        component={Main}
+        options={() => ({
+          headerShown: false,
+        })}
+      />
+      <Stack.Screen
+        name="LoginCadastro"
+        component={LoginCadastro}
+        options={() => ({
+          headerShown: false,
+        })}
+      />
+      <Drawer.Screen name="Produto" component={Product} />
+    </Stack.Navigator>
   );
 }

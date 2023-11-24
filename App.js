@@ -13,13 +13,23 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import AppRouter from "./src/routes";
 import { NavigationContainer } from "@react-navigation/native";
 import { AuthProvider } from "./src/context/AuthContext";
+import { useFonts, Poppins_Regular, Inter_Regular } from "expo-font";
 
 export default function App() {
+  const [fontsLoaded] = useFonts({
+    "Inter-Regular": require("./assets/fonts/Inter-Regular.ttf"),
+    "Poppins-Regular": require("./assets/fonts/Poppins-Regular.ttf"),
+  });
+
+  // if (!fontsLoaded) {
+  //   // Fonts are still loading, return null or a loading indicator
+  //   return null;
+  // }
   return (
-    <AuthProvider>
-      <NavigationContainer>
+    <NavigationContainer>
+      <AuthProvider>
         <AppRouter />
-      </NavigationContainer>
-    </AuthProvider>
+      </AuthProvider>
+    </NavigationContainer>
   );
 }
