@@ -8,6 +8,7 @@ import { useFonts } from "expo-font";
 import { AuthContext } from "../../context/AuthContext";
 import { useFocusEffect, useNavigation } from "@react-navigation/native";
 import Footer from "../../components/Footer";
+import DarkMode from "../../components/DarkMode";
 
 export default function Home() {
   const scrollViewRef = useRef();
@@ -35,6 +36,8 @@ export default function Home() {
       ref={scrollViewRef}
       style={[styles.container, { backgroundColor: theme.backgroundColor }]}
     >
+      <DarkMode />
+
       <View style={styles.topo}>
         <View style={styles.imgContainer}>
           <Image source={topoImg} style={styles.image} />
@@ -77,12 +80,6 @@ export default function Home() {
           </Pressable>
         </View>
       </View>
-
-      <Pressable style={styles.toggleThemeButton} onPress={toggleTheme}>
-        <Text style={[styles.toggleThemeButton, { color: theme.primaryBlack }]}>
-          Dark Mode
-        </Text>
-      </Pressable>
       <ProductList theme={theme} />
       <Footer />
     </ScrollView>

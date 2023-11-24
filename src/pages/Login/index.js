@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import {
   View,
   Text,
@@ -73,11 +73,12 @@ export default function Login() {
     <ScrollView
       style={[styles.container, { backgroundColor: theme.backgroundColor }]}
     >
-      <Pressable style={styles.toggleThemeButton} onPress={toggleTheme}>
+      <DarkMode />
+      {/* <Pressable style={styles.toggleThemeButton} onPress={toggleTheme}>
         <Text style={[styles.toggleThemeButton, { color: theme.primaryBlack }]}>
           Dark Mode
         </Text>
-      </Pressable>
+  </Pressable>*/}
       <View style={styles.imgContainer}>
         <Image source={logo} style={styles.image} resizeMode="contain" />
       </View>
