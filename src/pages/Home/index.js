@@ -35,7 +35,9 @@ export default function Home() {
       style={[styles.container, { backgroundColor: theme.backgroundColor }]}
     >
       <View style={styles.topo}>
-        <Image source={topoImg} style={styles.image} resizeMode="cover" />
+        <View style={styles.imgContainer}>
+          <Image source={topoImg} style={styles.image} />
+        </View>
         <View style={styles.overlay}>
           <Pressable onPress={deslogar}>
             <Text>Sair</Text>
