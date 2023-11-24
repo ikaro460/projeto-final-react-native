@@ -21,8 +21,6 @@ export default function CustomDrawer(props) {
           source={require("../../../assets/logo.png")}
           style={{ width: 65, height: 65 }}
         />
-
-        <Text style={{ color: "#000", fontSize: 20 }}>Bem Vindo !</Text>
       </View>
       <DrawerItemList {...props} />
     </DrawerContentScrollView>

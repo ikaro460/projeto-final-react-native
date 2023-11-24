@@ -1,4 +1,4 @@
-import React, { useContext, useRef } from "react";
+import React, { useContext, useEffect, useRef } from "react";
 import { Image, Pressable, ScrollView, Text, View } from "react-native";
 import topoImg from "../../../assets/topo-home.jpeg";
 import ProductList from "../../components/ProductList";
@@ -12,13 +12,19 @@ import DarkMode from "../../components/DarkMode";
 
 export default function Home() {
   const scrollViewRef = useRef();
-  const { theme, toggleTheme, cliente, loadClienteFromStorage, deslogar } =
-    useContext(AuthContext);
+  const {
+    theme,
+    cliente,
+    loadClienteFromStorage,
+    loadProdutosFromServer,
+    deslogar,
+  } = useContext(AuthContext);
   const navigation = useNavigation();
 
   useFocusEffect(
     React.useCallback(() => {
-      loadClienteFromStorage(); // Load produtos from the server
+      loadProdutosFromServer();
+      loadClienteFromStorage();
       if (!cliente) {
         navigation.navigate("LoginCadastro", { screen: "Login" });
       }
@@ -27,7 +33,7 @@ export default function Home() {
 
   const scrollToPosition = () => {
     if (scrollViewRef.current) {
-      scrollViewRef.current.scrollTo({ y: 800, animated: true });
+      scrollViewRef.current.scrollTo({ y: 850, animated: true });
     }
   };
 

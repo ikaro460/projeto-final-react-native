@@ -53,7 +53,7 @@ export const AuthProvider = ({ children }) => {
 
   const loadProdutosFromServer = async () => {
     try {
-      const response = await axios.get("https://your-api-url/produto");
+      const response = await api.get("produto");
       setProdutos(response.data);
 
       // Save produtos to AsyncStorage
