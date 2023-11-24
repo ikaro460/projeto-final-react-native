@@ -16,6 +16,8 @@ const styles = StyleSheet.create({
     fontFamily: "Inter-Regular",
   },
   title: {
+    lightMode: "black",
+    darkMode: "white",
     fontFamily: "Poppins-Regular",
     fontSize: 40,
     fontWeight: "500",
@@ -36,6 +38,7 @@ const styles = StyleSheet.create({
     lineHeight: 26,
     letterSpacing: -0.4,
   },
+
   input: {
     height: "40px",
     marginBottom: "32px",

@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from "react";
+import React, { useContext, useEffect } from "react";
 import {
   View,
   Text,
@@ -14,15 +14,17 @@ import fone from "../../../assets/fone-1.png";
 import styles from "./style.js"; // You need to create a style file for your components
 import { api } from "../../services/api.jsx";
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import { darkTheme, globalStyle, lightTheme } from "../../styles/globa.js";
+import { darkTheme, globalStyle, lightTheme } from "../../styles/global.js";
 import { AuthContext } from "../../context/AuthContext.js";
+import { Ionicons } from "@expo/vector-icons";
+import DarkMode from "../../components/DarkMode";
 
 export default function Login() {
   const { theme, toggleTheme, logar, loadClienteFromStorage, users, cliente } =
     useContext(AuthContext);
-  const [login, setLogin] = useState("");
-  const [senha, setSenha] = useState("");
-  const [mensagemErro, setMensagemErro] = useState("");
+  const [login, setLogin] = React.useState("");
+  const [senha, setSenha] = React.useState("");
+  const [mensagemErro, setMensagemErro] = React.useState("");
   const navigation = useNavigation();
 
   useFocusEffect(
@@ -63,11 +65,7 @@ export default function Login() {
     <SafeAreaView
       style={[styles.container, { backgroundColor: theme.backgroundColor }]}
     >
-      <Pressable style={styles.toggleThemeButton} onPress={toggleTheme}>
-        <Text style={[styles.toggleThemeButton, { color: theme.primaryBlack }]}>
-          Dark Mode
-        </Text>
-      </Pressable>
+      <DarkMode />
       <View>
         <Image source={fone} style={styles.image} resizeMode="contain" />
       </View>

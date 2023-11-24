@@ -14,9 +14,10 @@ import perfil from "../../../assets/perfil.png";
 import { api } from "../../services/api";
 import { styles } from "./style";
 import { useFocusEffect, useNavigation } from "@react-navigation/native";
-import { darkTheme, globalStyle, lightTheme } from "../../styles/globa";
+import { darkTheme, globalStyle, lightTheme } from "../../styles/global";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { AuthContext } from "../../context/AuthContext";
+import DarkMode from "../../components/DarkMode";
 
 export default function Cadastro() {
   const { theme, toggleTheme, logar } = useContext(AuthContext);
@@ -68,11 +69,7 @@ export default function Cadastro() {
     <ScrollView
       style={[styles.container, { backgroundColor: theme.backgroundColor }]}
     >
-      <Pressable style={styles.toggleThemeButton} onPress={toggleTheme}>
-        <Text style={[styles.toggleThemeButton, { color: theme.primaryBlack }]}>
-          Dark Mode
-        </Text>
-      </Pressable>
+      <DarkMode />
 
       <View>
         <Image source={perfil} style={styles.image} />

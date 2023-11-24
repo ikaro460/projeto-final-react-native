@@ -14,14 +14,16 @@ import perfil from "../../../assets/perfil.png";
 import { api } from "../../services/api";
 import { styles } from "./style";
 import { useNavigation } from "@react-navigation/native";
-import { darkTheme, globalStyle, lightTheme } from "../../styles/globa";
+import { darkTheme, globalStyle, lightTheme } from "../../styles/global";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { AuthContext } from "../../context/AuthContext";
+import { Ionicons } from "@expo/vector-icons";
 
 export default function Cadastro() {
   const { theme, toggleTheme, logar } = useContext(AuthContext);
   const navigation = useNavigation();
   const [mensagemErro, setMensagemErro] = useState("");
+  const [isDarkMode, setIsDarkMode] = useState(false);
   const [formData, setFormData] = useState({
     nome: "",
     email: "",
@@ -64,13 +66,26 @@ export default function Cadastro() {
     }
   };
 
+  const handleToggleTheme = () => {
+    setIsDarkMode(!isDarkMode);
+    toggleTheme();
+  };
+
   return (
     <ScrollView
       style={[styles.container, { backgroundColor: theme.backgroundColor }]}
     >
-      <Pressable style={styles.toggleThemeButton} onPress={toggleTheme}>
-        <Text style={[styles.toggleThemeButton, { color: theme.primaryBlack }]}>
-          Dark Mode
+      <Pressable style={styles.toggleThemeButton} onPress={handleToggleTheme}>
+        <Ionicons
+          name={isDarkMode ? "moon-outline" : "sunny-outline"}
+          size={24}
+          color={theme.primaryBlack}
+          style={{ marginRight: 8 }}
+        />
+        <Text
+          style={[styles.toggleThemeButtonText, { color: theme.primaryBlack }]}
+        >
+          {isDarkMode ? "" : ""}
         </Text>
       </Pressable>
 

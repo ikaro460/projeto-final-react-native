@@ -2,7 +2,7 @@ import React, { useContext, useRef } from "react";
 import { Image, Pressable, ScrollView, Text, View } from "react-native";
 import topoImg from "../../../assets/topo-home.jpeg";
 import ProductList from "../../components/ProductList";
-import { globalStyle } from "../../styles/globa";
+import { globalStyle } from "../../styles/global";
 import { styles } from "./style";
 import { useFonts } from "expo-font";
 import { AuthContext } from "../../context/AuthContext";
