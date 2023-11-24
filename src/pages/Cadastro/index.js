@@ -13,7 +13,7 @@ import {
 import perfil from "../../../assets/perfil.png";
 import { api } from "../../services/api";
 import { styles } from "./style";
-import { useNavigation } from "@react-navigation/native";
+import { useFocusEffect, useNavigation } from "@react-navigation/native";
 import { darkTheme, globalStyle, lightTheme } from "../../styles/globa";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { AuthContext } from "../../context/AuthContext";

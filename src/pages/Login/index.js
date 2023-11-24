@@ -27,7 +27,6 @@ export default function Login() {
 
   useFocusEffect(
     React.useCallback(() => {
-      console.log(cliente);
       loadClienteFromStorage();
       if (!!cliente) {
         navigation.navigate("Main", { screen: "Home" });

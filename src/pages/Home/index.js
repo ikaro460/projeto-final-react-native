@@ -32,7 +32,7 @@ export default function Home() {
   };
 
   return (
-    <ScrollView
+    <View
       ref={scrollViewRef}
       style={[styles.container, { backgroundColor: theme.backgroundColor }]}
     >
@@ -83,6 +83,6 @@ export default function Home() {
         </Text>
       </Pressable>
       <ProductList theme={theme} />
-    </ScrollView>
+    </View>
   );
 }

@@ -16,7 +16,7 @@ const styles = StyleSheet.create({
     // fontFamily: "Inter, sans-serif",
   },
   title: {
-    fontFamily: "Poppins",
+    fontFamily: "Poppins-Regular",
     fontSize: 40,
     fontWeight: 500,
     lineHeight: 20,
@@ -39,7 +39,6 @@ const styles = StyleSheet.create({
   input: {
     height: "40px",
     marginBottom: "32px",
-    transition: "0.2s",
     padding: 5,
     height: 40,
     marginBottom: 32,
@@ -53,7 +52,7 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     justifyContent: "center",
     alignItems: "center",
-    transition: "0.2s",
+    transition: 0.2,
     fontWeight: "500",
     letterSpacing: 1,
     gap: 8,
