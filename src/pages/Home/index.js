@@ -32,7 +32,7 @@ export default function Home() {
   };
 
   return (
-    <View
+    <ScrollView
       ref={scrollViewRef}
       style={[styles.container, { backgroundColor: theme.backgroundColor }]}
     >
@@ -56,7 +56,7 @@ export default function Home() {
               (styles.overlayText,
               {
                 fontSize: 16,
-                fontWeight: 400,
+                fontWeight: "400",
                 fontFamily: "Poppins-Regular",
               })
             }
@@ -83,6 +83,6 @@ export default function Home() {
         </Text>
       </Pressable>
       <ProductList theme={theme} />
-    </View>
+    </ScrollView>
   );
 }

@@ -35,7 +35,6 @@ export default function Login() {
   );
 
   const entrar = () => {
-    console.log(users);
     const matchingClientes = users.filter((cliente) => {
       if (login === cliente.email && senha === cliente.senha) {
         const info = {

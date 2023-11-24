@@ -32,14 +32,14 @@ const styles = StyleSheet.create({
     color: "#000000", // Substitua pela cor desejada
   },
   title: {
-    // fontFamily: "Inter, sans-serif",
+    fontFamily: "Inter-Regular",
     fontSize: 16,
     fontStyle: "normal",
     fontWeight: "600",
     lineHeight: 26,
   },
   text: {
-    // fontFamily: "Inter, sans-serif",
+    fontFamily: "Inter-Regular",
     fontSize: 14,
     fontStyle: "normal",
     fontWeight: "600",
@@ -63,7 +63,7 @@ const styles = StyleSheet.create({
     borderColor: "transparent",
   },
   botaoText: {
-    // fontFamily: "Inter, sans-serif",
+    fontFamily: "Inter-Regular",
     letterSpacing: 1,
     fontWeight: "500",
   },

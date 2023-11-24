@@ -29,12 +29,6 @@ export default function Cadastro() {
     pedidos: [],
   });
 
-  useEffect(() => {
-    const token = localStorage.getItem("token");
-    if (token) {
-    }
-  }, []);
-
   const cadastrar = async () => {
     if (formData.nome == "" || formData.email == "" || formData.senha == "") {
       setMensagemErro("Preencha todos os campos");
