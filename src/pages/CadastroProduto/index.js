@@ -160,6 +160,7 @@ export default function CadastroProduto() {
           </Text>
         </Pressable>
       </View>
+      <Footer />
     </ScrollView>
   );
 }

@@ -151,6 +151,7 @@ export default function EditarProduto({ route }) {
           </Text>
         </Pressable>
       </View>
+      <Footer />
     </ScrollView>
   );
 }
