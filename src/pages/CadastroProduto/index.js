@@ -18,6 +18,7 @@ import { darkTheme, globalStyle, lightTheme } from "../../styles/global";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { AuthContext } from "../../context/AuthContext";
 import * as ImagePicker from "expo-image-picker";
+import Footer from "../../components/Footer";
 
 export default function CadastroProduto() {
   const { theme, toggleTheme, logar } = useContext(AuthContext);

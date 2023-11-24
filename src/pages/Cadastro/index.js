@@ -127,6 +127,7 @@ export default function Cadastro() {
           placeholderTextColor={theme.neutral1}
           value={formData.senha}
           onChange={(e) => setFormData({ ...formData, senha: e.target.value })}
+          secureTextEntry
           maxLength={64}
         />
 

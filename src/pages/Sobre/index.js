@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { View, Text, Image } from "react-native";
 import axios from "axios";
 import { styles } from "./style";
+import Footer from "../../components/Footer";
 
 function Sobre() {
   const [logins, setLogins] = useState([]);

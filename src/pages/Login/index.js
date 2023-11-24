@@ -10,26 +10,33 @@ import {
   SafeAreaView,
 } from "react-native";
 import { useFocusEffect, useNavigation } from "@react-navigation/core";
-import fone from "../../../assets/fone-1.png";
-import styles from "./style.js"; // You need to create a style file for your components
-import { api } from "../../services/api.jsx";
-import AsyncStorage from "@react-native-async-storage/async-storage";
+import logo from "../../../assets/logo.png";
 import { darkTheme, globalStyle, lightTheme } from "../../styles/global.js";
 import { AuthContext } from "../../context/AuthContext.js";
 import { Ionicons } from "@expo/vector-icons";
 import DarkMode from "../../components/DarkMode";
 import { ScrollView } from "react-native-gesture-handler";
+import { styles } from "./style.js";
+import Footer from "../../components/Footer/index.js";
 
 export default function Login() {
-  const { theme, toggleTheme, logar, loadClienteFromStorage, users, cliente } =
-    useContext(AuthContext);
-  const [login, setLogin] = React.useState("");
-  const [senha, setSenha] = React.useState("");
-  const [mensagemErro, setMensagemErro] = React.useState("");
+  const {
+    theme,
+    toggleTheme,
+    logar,
+    loadClienteFromStorage,
+    users,
+    cliente,
+    getUsers,
+  } = useContext(AuthContext);
+  const [login, setLogin] = useState("");
+  const [senha, setSenha] = useState("");
+  const [mensagemErro, setMensagemErro] = useState("");
   const navigation = useNavigation();
 
   useFocusEffect(
     React.useCallback(() => {
+      getUsers();
       loadClienteFromStorage();
       if (!!cliente) {
         navigation.navigate("Main", { screen: "Home" });
@@ -66,9 +73,13 @@ export default function Login() {
     <ScrollView
       style={[styles.container, { backgroundColor: theme.backgroundColor }]}
     >
-      <DarkMode />
-      <View>
-        <Image source={fone} style={styles.image} resizeMode="contain" />
+      <Pressable style={styles.toggleThemeButton} onPress={toggleTheme}>
+        <Text style={[styles.toggleThemeButton, { color: theme.primaryBlack }]}>
+          Dark Mode
+        </Text>
+      </Pressable>
+      <View style={styles.imgContainer}>
+        <Image source={logo} style={styles.image} resizeMode="contain" />
       </View>
       <View style={styles.form}>
         <Text
