@@ -25,7 +25,7 @@ export default function Home() {
 
   const scrollToPosition = () => {
     if (scrollViewRef.current) {
-      scrollViewRef.current.scrollTo({ y: 730, animated: true });
+      scrollViewRef.current.scrollTo({ y: 800, animated: true });
     }
   };
 
@@ -35,7 +35,9 @@ export default function Home() {
       style={[styles.container, { backgroundColor: theme.backgroundColor }]}
     >
       <View style={styles.topo}>
-        <Image source={topoImg} style={styles.image} resizeMode="cover" />
+        <View style={styles.imgContainer}>
+          <Image source={topoImg} style={styles.image} />
+        </View>
         <View style={styles.overlay}>
           <Pressable onPress={deslogar}>
             <Text>Sair</Text>

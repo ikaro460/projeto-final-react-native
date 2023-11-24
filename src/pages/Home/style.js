@@ -13,12 +13,16 @@ export const styles = StyleSheet.create({
   toggleThemeText: {
     fontSize: 12,
   },
-  topo: {
-    height: "110vh",
+  imgContainer: {
+    height: 800,
+    backgroundColor: "pink",
+    alignItems: "center",
+    overflow: "hidden",
   },
   image: {
-    flex: 1,
+    height: "100%",
     aspectRatio: 1,
+    resizeMode: "cover",
   },
   overlay: {
     ...StyleSheet.absoluteFillObject, // This makes the overlay take the whole parent space
