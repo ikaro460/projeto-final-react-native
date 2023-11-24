@@ -8,6 +8,8 @@ import Product from "../pages/Product";
 import { createStackNavigator } from "@react-navigation/stack";
 import CadastroProduto from "../pages/CadastroProduto";
 import { Pressable, Text } from "react-native";
+import Sobre from "../pages/Sobre";
+import EditarProduto from "../pages/EditarProduto";
 
 const Stack = createStackNavigator(); // Create a stack navigator
 const Drawer = createDrawerNavigator();
@@ -60,7 +62,7 @@ function Main() {
       />
       <Drawer.Screen
         name="Sobre"
-        component={Home}
+        component={Sobre}
         options={{ title: "Sobre o projeto" }}
       />
     </Drawer.Navigator>
@@ -85,6 +87,7 @@ export default function AppRouter() {
         })}
       />
       <Drawer.Screen name="Produto" component={Product} />
+      <Drawer.Screen name="EditarProduto" component={EditarProduto} />
     </Stack.Navigator>
   );
 }

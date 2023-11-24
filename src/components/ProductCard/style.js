@@ -1,5 +1,5 @@
 import { StyleSheet } from "react-native";
-import { globalStyle } from "../../styles/globa";
+import { globalStyle } from "../../styles/global";
 
 const styles = StyleSheet.create({
   produtoCard: {
@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
     color: "#000000", // Substitua pela cor desejada
   },
   title: {
-    fontFamily: "Inter-Regular",
+    fontFamily: "Inter-Bold",
     fontSize: 16,
     fontStyle: "normal",
     fontWeight: "600",

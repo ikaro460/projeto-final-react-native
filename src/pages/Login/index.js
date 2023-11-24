@@ -16,7 +16,6 @@ import { api } from "../../services/api.jsx";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { darkTheme, globalStyle, lightTheme } from "../../styles/globa.js";
 import { AuthContext } from "../../context/AuthContext.js";
-import Footer from "../../components/Footer/index.js";
 
 export default function Login() {
   const { theme, toggleTheme, logar, loadClienteFromStorage, users, cliente } =
@@ -127,7 +126,6 @@ export default function Login() {
           </Text>
         </Pressable>
       </View>
-      <Footer />
     </SafeAreaView>
   );
 }

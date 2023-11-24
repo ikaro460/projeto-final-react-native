@@ -10,7 +10,6 @@ export default function ProductList({ theme }) {
   const getProdutos = async () => {
     try {
       const { data } = await api.get("produto");
-      console.log(data);
       setProdutos(data);
     } catch (err) {
       console.log(err);
