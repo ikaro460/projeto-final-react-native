@@ -1,12 +1,21 @@
 import { StyleSheet } from "react-native";
 
-const styles = StyleSheet.create({
+export const styles = StyleSheet.create({
   container: {
     flex: 1,
   },
 
-  image: {
+  imgContainer: {
+    width: "100%",
     height: 200,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+
+  image: {
+    width: "100%",
+    height: "100%",
+    resizeMode: "cover",
   },
 
   form: {
@@ -16,34 +25,33 @@ const styles = StyleSheet.create({
     fontFamily: "Inter-Regular",
   },
   title: {
-    lightMode: "black",
-    darkMode: "white",
-    fontFamily: "Poppins-Regular",
-    fontSize: 40,
-    fontWeight: "500",
-    lineHeight: 20,
+    fontSize: 50,
+    fontFamily: "Poppins-Medium",
     letterSpacing: -0.4,
     marginBottom: "24px",
   },
+  greyTxtCtn: {
+    flex: 1,
+    flexDirection: "row",
+    justifyContent: "flex-start",
+    height: 50,
+  },
   greyText: {
-    fontSize: 16,
-    fontWeight: "400",
-    lineHeight: 26,
-    letterSpacing: -0.4,
-    marginBottom: "32px",
+    fontSize: 14,
+    fontFamily: "Poppins-Regular",
+    marginBottom: 10,
   },
   link: {
-    fontSize: 16,
-    fontWeight: "600",
-    lineHeight: 26,
-    letterSpacing: -0.4,
+    marginLeft: 4,
+    fontSize: 14,
+    fontFamily: "Poppins-Bold",
   },
 
   input: {
-    height: "40px",
+    fontSize: 16,
     marginBottom: "32px",
     padding: 5,
-    height: 40,
+    height: 50,
     marginBottom: 32,
     borderBottomWidth: 1,
     borderColor: "#e8ecef",
@@ -62,5 +70,3 @@ const styles = StyleSheet.create({
     backgroundColor: "#989898",
   },
 });
-
-export default styles;

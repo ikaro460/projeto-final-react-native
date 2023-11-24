@@ -10,7 +10,7 @@ import {
   TouchableOpacity,
   ScrollView,
 } from "react-native";
-import perfil from "../../../assets/perfil.png";
+import logo from "../../../assets/logo.png";
 import { api } from "../../services/api";
 import { styles } from "./style";
 import { useFocusEffect, useNavigation } from "@react-navigation/native";
@@ -18,6 +18,7 @@ import { darkTheme, globalStyle, lightTheme } from "../../styles/global";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { AuthContext } from "../../context/AuthContext";
 import DarkMode from "../../components/DarkMode";
+import Footer from "../../components/Footer";
 
 export default function Cadastro() {
   const { theme, toggleTheme, logar } = useContext(AuthContext);
@@ -71,8 +72,8 @@ export default function Cadastro() {
     >
       <DarkMode />
 
-      <View>
-        <Image source={perfil} style={styles.image} />
+      <View style={styles.imgContainer}>
+        <Image source={logo} style={styles.image} />
       </View>
       <View style={styles.form}>
         <Text
@@ -90,22 +91,38 @@ export default function Cadastro() {
           Cadastro
         </Text>
 
+        <View style={styles.greyTxtCtn}>
+          <Text
+            style={[
+              styles.text,
+              styles.greyText,
+              // { color: theme.neutral1 }
+            ]}
+          >
+            Já possui uma conta?
+          </Text>
+          <Pressable onPress={() => navigation.navigate("Login")}>
+            <Text style={[styles.link, { color: globalStyle.colorGreen }]}>
+              Entre agora!
+            </Text>
+          </Pressable>
+        </View>
         <TextInput
-          style={[styles.input, styles.text]}
+          style={[styles.input, styles.text, { color: theme.primaryBlack }]}
           placeholder="Seu nome completo"
           placeholderTextColor={theme.neutral1}
           value={formData.nome}
           onChange={(e) => setFormData({ ...formData, nome: e.target.value })}
         />
         <TextInput
-          style={[styles.input, styles.text]}
+          style={[styles.input, styles.text, { color: theme.primaryBlack }]}
           placeholder="Seu email de acesso"
           placeholderTextColor={theme.neutral1}
           value={formData.email}
           onChange={(e) => setFormData({ ...formData, email: e.target.value })}
         />
         <TextInput
-          style={[styles.input, styles.text]}
+          style={[styles.input, styles.text, { color: theme.primaryBlack }]}
           placeholder="Senha"
           placeholderTextColor={theme.neutral1}
           value={formData.senha}
@@ -122,6 +139,7 @@ export default function Cadastro() {
           </Text>
         </Pressable>
       </View>
+      <Footer />
     </ScrollView>
   );
 }

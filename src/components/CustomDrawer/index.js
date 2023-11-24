@@ -18,7 +18,7 @@ export default function CustomDrawer(props) {
         }}
       >
         <Image
-          source={require("../../../assets/perfil.png")}
+          source={require("../../../assets/logo.png")}
           style={{ width: 65, height: 65 }}
         />
 

@@ -7,6 +7,7 @@ import { styles } from "./style";
 import { useFonts } from "expo-font";
 import { AuthContext } from "../../context/AuthContext";
 import { useFocusEffect, useNavigation } from "@react-navigation/native";
+import Footer from "../../components/Footer";
 
 export default function Home() {
   const scrollViewRef = useRef();
@@ -16,8 +17,7 @@ export default function Home() {
 
   useFocusEffect(
     React.useCallback(() => {
-      console.log(cliente);
-      loadClienteFromStorage();
+      loadClienteFromStorage(); // Load produtos from the server
       if (!cliente) {
         navigation.navigate("LoginCadastro", { screen: "Login" });
       }
@@ -26,8 +26,7 @@ export default function Home() {
 
   const scrollToPosition = () => {
     if (scrollViewRef.current) {
-      console.log("po");
-      scrollViewRef.current.scrollTo({ y: 730, animated: true });
+      scrollViewRef.current.scrollTo({ y: 800, animated: true });
     }
   };
 
@@ -37,7 +36,9 @@ export default function Home() {
       style={[styles.container, { backgroundColor: theme.backgroundColor }]}
     >
       <View style={styles.topo}>
-        <Image source={topoImg} style={styles.image} resizeMode="cover" />
+        <View style={styles.imgContainer}>
+          <Image source={topoImg} style={styles.image} />
+        </View>
         <View style={styles.overlay}>
           <Pressable onPress={deslogar}>
             <Text>Sair</Text>
@@ -83,6 +84,7 @@ export default function Home() {
         </Text>
       </Pressable>
       <ProductList theme={theme} />
+      <Footer />
     </ScrollView>
   );
 }

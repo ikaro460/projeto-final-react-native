@@ -116,6 +116,7 @@ export const AuthProvider = ({ children }) => {
         saveThemeChoice,
         loadThemeChoice,
         loadClienteFromStorage,
+        loadProdutosFromServer,
         users,
         getUsers,
         produtos: produtos,

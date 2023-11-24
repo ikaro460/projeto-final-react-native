@@ -18,6 +18,7 @@ import { darkTheme, globalStyle, lightTheme } from "../../styles/global.js";
 import { AuthContext } from "../../context/AuthContext.js";
 import { Ionicons } from "@expo/vector-icons";
 import DarkMode from "../../components/DarkMode";
+import { ScrollView } from "react-native-gesture-handler";
 
 export default function Login() {
   const { theme, toggleTheme, logar, loadClienteFromStorage, users, cliente } =
@@ -62,7 +63,7 @@ export default function Login() {
   };
 
   return (
-    <SafeAreaView
+    <ScrollView
       style={[styles.container, { backgroundColor: theme.backgroundColor }]}
     >
       <DarkMode />
@@ -124,6 +125,7 @@ export default function Login() {
           </Text>
         </Pressable>
       </View>
-    </SafeAreaView>
+      <Footer />
+    </ScrollView>
   );
 }
