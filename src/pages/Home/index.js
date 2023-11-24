@@ -83,6 +83,7 @@ export default function Home() {
         </Text>
       </Pressable>
       <ProductList theme={theme} />
+      <Footer />
     </ScrollView>
   );
 }

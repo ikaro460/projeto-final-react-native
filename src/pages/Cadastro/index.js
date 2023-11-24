@@ -70,7 +70,7 @@ export default function Cadastro() {
     >
       <Pressable style={styles.toggleThemeButton} onPress={toggleTheme}>
         <View style={styles.circle} />
-        
+
         <Text style={[styles.toggleThemeText, { color: theme.primaryBlack }]}>
           Dark Mode
         </Text>
@@ -143,6 +143,7 @@ export default function Cadastro() {
           </Text>
         </Pressable>
       </View>
+      <Footer />
     </ScrollView>
   );
 }

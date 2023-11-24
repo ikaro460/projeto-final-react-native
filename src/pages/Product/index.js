@@ -23,6 +23,7 @@ export default function Product({ route }) {
       >
         <Text>Editar</Text>
       </Pressable>
+      <Footer />
     </View>
   );
 }

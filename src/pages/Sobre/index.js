@@ -67,6 +67,7 @@ function Sobre() {
           ))}
         </View>
       </View>
+      <Footer />
     </View>
   );
 }

@@ -159,6 +159,7 @@ export default function Cadastro() {
           </Text>
         </Pressable>
       </View>
+      <Footer />
     </ScrollView>
   );
 }

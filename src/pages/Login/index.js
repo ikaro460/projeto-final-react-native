@@ -16,6 +16,7 @@ import { api } from "../../services/api.jsx";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { darkTheme, globalStyle, lightTheme } from "../../styles/globa.js";
 import { AuthContext } from "../../context/AuthContext.js";
+import { ScrollView } from "react-native-gesture-handler";
 
 export default function Login() {
   const { theme, toggleTheme, logar, loadClienteFromStorage, users, cliente } =
@@ -60,7 +61,7 @@ export default function Login() {
   };
 
   return (
-    <SafeAreaView
+    <ScrollView
       style={[styles.container, { backgroundColor: theme.backgroundColor }]}
     >
       <Pressable style={styles.toggleThemeButton} onPress={toggleTheme}>
@@ -126,6 +127,7 @@ export default function Login() {
           </Text>
         </Pressable>
       </View>
-    </SafeAreaView>
+      <Footer />
+    </ScrollView>
   );
 }
