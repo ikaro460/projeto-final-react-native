@@ -1,11 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { View, Text, Image } from "react-native";
 import axios from "axios";
-import AsyncStorage from "@react-native-async-storage/async-storage";
-import { useFocusEffect, useNavigation } from "@react-navigation/native";
-import ImgAbout from "../../components/ImgAbout";
-import { api } from "../../services/api";
-import saxofone from "../../../assets/perfil.png";
 import { styles } from "./style";
 
 function Sobre() {

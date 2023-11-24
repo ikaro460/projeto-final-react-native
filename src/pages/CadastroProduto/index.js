@@ -10,7 +10,7 @@ import {
   TouchableOpacity,
   ScrollView,
 } from "react-native";
-import perfil from "../../../assets/perfil.png";
+import logo from "../../../assets/logo.png";
 import { api } from "../../services/api";
 import { styles } from "./style";
 import { useFocusEffect, useNavigation } from "@react-navigation/native";
@@ -19,11 +19,11 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import { AuthContext } from "../../context/AuthContext";
 import * as ImagePicker from "expo-image-picker";
 
-export default function Cadastro() {
+export default function CadastroProduto() {
   const { theme, toggleTheme, logar } = useContext(AuthContext);
   const navigation = useNavigation();
   const [mensagemErro, setMensagemErro] = useState("");
-  const [selectedImage, setSelectedImage] = useState(null);
+  const [selectedImage, setSelectedImage] = useState(logo);
   const [formData, setFormData] = useState({
     nome: "",
     descricao: "",
@@ -38,6 +38,7 @@ export default function Cadastro() {
       const result = await ImagePicker.launchImageLibraryAsync();
       if (!result.cancelled) {
         setFormData({ ...formData, imagem: result.uri });
+        setSelectedImage(result.uri);
       }
     }
   };
@@ -87,7 +88,7 @@ export default function Cadastro() {
       </Pressable>
 
       <View style={styles.imgContainer}>
-        <Image source={perfil} style={styles.image} />
+        <Image source={selectedImage} style={styles.image} />
       </View>
       <View style={styles.form}>
         <Text

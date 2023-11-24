@@ -10,7 +10,7 @@ import {
   TouchableOpacity,
   ScrollView,
 } from "react-native";
-import perfil from "../../../assets/perfil.png";
+import logo from "../../../assets/logo.png";
 import { api } from "../../services/api";
 import { styles } from "./style";
 import { useFocusEffect, useNavigation } from "@react-navigation/native";
@@ -75,7 +75,7 @@ export default function Cadastro() {
       </Pressable>
 
       <View style={styles.imgContainer}>
-        <Image source={perfil} style={styles.image} />
+        <Image source={logo} style={styles.image} />
       </View>
       <View style={styles.form}>
         <Text
