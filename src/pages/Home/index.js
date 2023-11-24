@@ -16,7 +16,7 @@ export default function Home() {
 
   useFocusEffect(
     React.useCallback(() => {
-      loadClienteFromStorage();
+      loadClienteFromStorage(); // Load produtos from the server
       if (!cliente) {
         navigation.navigate("LoginCadastro", { screen: "Login" });
       }

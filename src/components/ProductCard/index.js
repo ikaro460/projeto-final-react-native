@@ -24,10 +24,6 @@ export default function ProductCard({ produto, theme, avaliacao }) {
     }
   };
 
-  // const editarProduto = () => {
-  //   navigation.navigate("EditarProduto", { id_produto: produto.id_produto });
-  // };
-
   const renderStars = () => {
     // Create an array of length numberOfStars and fill it with placeholders
     const starsArray = Array.from({ length: avaliacao }, (_, index) => index);
