@@ -14,6 +14,7 @@ import { useNavigation } from "@react-navigation/native";
 import { globalStyle } from "../../styles/global";
 import { AuthContext } from "../../context/AuthContext";
 import * as ImagePicker from "expo-image-picker";
+import Footer from "../../components/Footer";
 
 export default function EditarProduto({ route }) {
   const { produto } = route.params;
@@ -79,7 +80,7 @@ export default function EditarProduto({ route }) {
       </Pressable>
 
       <View style={styles.imgContainer}>
-        <Image source={logo} style={styles.image} />
+        <Image source={formData.imagem} style={styles.image} />
       </View>
       <View style={styles.form}>
         <Text

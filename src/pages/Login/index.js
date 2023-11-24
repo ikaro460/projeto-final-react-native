@@ -10,17 +10,23 @@ import {
   SafeAreaView,
 } from "react-native";
 import { useFocusEffect, useNavigation } from "@react-navigation/core";
-import fone from "../../../assets/fone-1.png";
-import styles from "./style.js"; // You need to create a style file for your components
-import { api } from "../../services/api.jsx";
-import AsyncStorage from "@react-native-async-storage/async-storage";
-import { darkTheme, globalStyle, lightTheme } from "../../styles/globa.js";
+import logo from "../../../assets/logo.png";
+import { darkTheme, globalStyle, lightTheme } from "../../styles/global.js";
 import { AuthContext } from "../../context/AuthContext.js";
 import { ScrollView } from "react-native-gesture-handler";
+import { styles } from "./style.js";
+import Footer from "../../components/Footer/index.js";
 
 export default function Login() {
-  const { theme, toggleTheme, logar, loadClienteFromStorage, users, cliente } =
-    useContext(AuthContext);
+  const {
+    theme,
+    toggleTheme,
+    logar,
+    loadClienteFromStorage,
+    users,
+    cliente,
+    getUsers,
+  } = useContext(AuthContext);
   const [login, setLogin] = useState("");
   const [senha, setSenha] = useState("");
   const [mensagemErro, setMensagemErro] = useState("");
@@ -28,6 +34,7 @@ export default function Login() {
 
   useFocusEffect(
     React.useCallback(() => {
+      getUsers();
       loadClienteFromStorage();
       if (!!cliente) {
         navigation.navigate("Main", { screen: "Home" });
@@ -69,8 +76,8 @@ export default function Login() {
           Dark Mode
         </Text>
       </Pressable>
-      <View>
-        <Image source={fone} style={styles.image} resizeMode="contain" />
+      <View style={styles.imgContainer}>
+        <Image source={logo} style={styles.image} resizeMode="contain" />
       </View>
       <View style={styles.form}>
         <Text

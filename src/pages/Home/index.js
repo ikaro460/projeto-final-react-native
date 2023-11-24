@@ -7,6 +7,7 @@ import { styles } from "./style";
 import { useFonts } from "expo-font";
 import { AuthContext } from "../../context/AuthContext";
 import { useFocusEffect, useNavigation } from "@react-navigation/native";
+import Footer from "../../components/Footer";
 
 export default function Home() {
   const scrollViewRef = useRef();

@@ -21,33 +21,33 @@ export default function App() {
     "Poppins-Bold": require("./assets/fonts/Poppins-Bold.ttf"),
     "Poppins-ExtraBold": require("./assets/fonts/Poppins-ExtraBold.ttf"),
   });
-  const [animationLoaded, setAnimationLoaded] = useState(false);
+  // const [animationLoaded, setAnimationLoaded] = useState(false);
 
-  useEffect(() => {
-    // Simulate some asynchronous loading process (e.g., loading data, fonts, etc.)
-    const loadData = async () => {
-      // Your asynchronous loading code goes here
+  // useEffect(() => {
+  //   // Simulate some asynchronous loading process (e.g., loading data, fonts, etc.)
+  //   const loadData = async () => {
+  //     // Your asynchronous loading code goes here
 
-      // Simulate loading time
-      await new Promise((resolve) => setTimeout(resolve, 2000));
+  //     // Simulate loading time
+  //     await new Promise((resolve) => setTimeout(resolve, 2000));
 
-      setAnimationLoaded(true);
-    };
+  //     setAnimationLoaded(true);
+  //   };
 
-    loadData();
-  }, []);
+  //   loadData();
+  // }, []);
 
-  if (!fontsLoaded || !animationLoaded) {
-    // Render a splash screen with the Lottie animation
-    return (
-      <LottieView
-        source={require("./assets/animations/splashAnimation.json")}
-        autoPlay
-        loop={true}
-        onAnimationFinish={() => setAnimationLoaded(true)}
-      />
-    );
-  }
+  // if (!fontsLoaded || !animationLoaded) {
+  //   // Render a splash screen with the Lottie animation
+  //   return (
+  //     <LottieView
+  //       source={require("./assets/animations/splashAnimation.json")}
+  //       autoPlay
+  //       loop={true}
+  //       onAnimationFinish={() => setAnimationLoaded(true)}
+  //     />
+  //   );
+  // }
   return (
     <NavigationContainer>
       <AuthProvider>

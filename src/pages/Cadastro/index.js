@@ -17,6 +17,7 @@ import { useFocusEffect, useNavigation } from "@react-navigation/native";
 import { darkTheme, globalStyle, lightTheme } from "../../styles/global";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { AuthContext } from "../../context/AuthContext";
+import Footer from "../../components/Footer";
 
 export default function Cadastro() {
   const { theme, toggleTheme, logar } = useContext(AuthContext);
@@ -131,6 +132,7 @@ export default function Cadastro() {
           placeholderTextColor={theme.neutral1}
           value={formData.senha}
           onChange={(e) => setFormData({ ...formData, senha: e.target.value })}
+          secureTextEntry
           maxLength={64}
         />
 

@@ -3,6 +3,7 @@ import { View, Text, Image, Pressable } from "react-native";
 import styles from "./style.js";
 import Icon from "react-native-vector-icons/FontAwesome";
 import { useNavigation } from "@react-navigation/native";
+import Footer from "../../components/Footer/index.js";
 
 export default function Product({ route }) {
   const { produto } = route.params;
