@@ -13,6 +13,8 @@ import { useFocusEffect, useNavigation } from "@react-navigation/core";
 import logo from "../../../assets/logo.png";
 import { darkTheme, globalStyle, lightTheme } from "../../styles/global.js";
 import { AuthContext } from "../../context/AuthContext.js";
+import { Ionicons } from "@expo/vector-icons";
+import DarkMode from "../../components/DarkMode";
 import { ScrollView } from "react-native-gesture-handler";
 import { styles } from "./style.js";
 import Footer from "../../components/Footer/index.js";
@@ -71,11 +73,12 @@ export default function Login() {
     <ScrollView
       style={[styles.container, { backgroundColor: theme.backgroundColor }]}
     >
-      <Pressable style={styles.toggleThemeButton} onPress={toggleTheme}>
+      <DarkMode />
+      {/* <Pressable style={styles.toggleThemeButton} onPress={toggleTheme}>
         <Text style={[styles.toggleThemeButton, { color: theme.primaryBlack }]}>
           Dark Mode
         </Text>
-      </Pressable>
+  </Pressable>*/}
       <View style={styles.imgContainer}>
         <Image source={logo} style={styles.image} resizeMode="contain" />
       </View>

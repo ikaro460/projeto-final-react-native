@@ -19,6 +19,7 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import { AuthContext } from "../../context/AuthContext";
 import * as ImagePicker from "expo-image-picker";
 import Footer from "../../components/Footer";
+import DarkMode from "../../components/DarkMode";
 
 export default function CadastroProduto() {
   const { theme, toggleTheme, logar } = useContext(AuthContext);
@@ -82,11 +83,7 @@ export default function CadastroProduto() {
     <ScrollView
       style={[styles.container, { backgroundColor: theme.backgroundColor }]}
     >
-      <Pressable style={styles.toggleThemeButton} onPress={toggleTheme}>
-        <Text style={[styles.toggleThemeButton, { color: theme.primaryBlack }]}>
-          Dark Mode
-        </Text>
-      </Pressable>
+      <DarkMode />
 
       <View style={styles.imgContainer}>
         <Image source={selectedImage} style={styles.image} />

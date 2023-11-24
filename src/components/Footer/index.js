@@ -5,7 +5,9 @@ import styles from "./style"; // Make sure to create a stylesheet for your style
 
 const Footer = () => {
   const redirectToGithub = () => {
-    Linking.openURL("https://github.com/ikaro460/react-g2-serratec");
+    Linking.openURL(
+      "https://github.com/ikaro460/projeto-final-react-native.git"
+    );
   };
 
   return (

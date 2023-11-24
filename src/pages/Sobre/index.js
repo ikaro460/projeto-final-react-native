@@ -3,6 +3,7 @@ import { View, Text, Image } from "react-native";
 import axios from "axios";
 import { styles } from "./style";
 import Footer from "../../components/Footer";
+import DarkMode from "../../components/DarkMode";
 
 function Sobre() {
   const [logins, setLogins] = useState([]);
@@ -37,6 +38,7 @@ function Sobre() {
 
   return (
     <View style={styles.container}>
+      <DarkMode />
       <View style={styles.section}>
         <Text style={styles.heading}>Sobre Nós</Text>
         <Text style={styles.text}>

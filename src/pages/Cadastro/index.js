@@ -17,6 +17,7 @@ import { useFocusEffect, useNavigation } from "@react-navigation/native";
 import { darkTheme, globalStyle, lightTheme } from "../../styles/global";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { AuthContext } from "../../context/AuthContext";
+import DarkMode from "../../components/DarkMode";
 import Footer from "../../components/Footer";
 
 export default function Cadastro() {
@@ -69,13 +70,7 @@ export default function Cadastro() {
     <ScrollView
       style={[styles.container, { backgroundColor: theme.backgroundColor }]}
     >
-      <Pressable style={styles.toggleThemeButton} onPress={toggleTheme}>
-        <View style={styles.circle} />
-
-        <Text style={[styles.toggleThemeText, { color: theme.primaryBlack }]}>
-          Dark Mode
-        </Text>
-      </Pressable>
+      <DarkMode />
 
       <View style={styles.imgContainer}>
         <Image source={logo} style={styles.image} />

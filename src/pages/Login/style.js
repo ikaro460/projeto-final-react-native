@@ -46,6 +46,7 @@ export const styles = StyleSheet.create({
     fontSize: 14,
     fontFamily: "Poppins-Bold",
   },
+
   input: {
     fontSize: 16,
     marginBottom: "32px",
