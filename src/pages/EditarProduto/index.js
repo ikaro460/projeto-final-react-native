@@ -100,11 +100,7 @@ export default function EditarProduto({ route }) {
 
         <View style={styles.greyTxtCtn}>
           <Text
-            style={[
-              styles.text,
-              styles.greyText,
-              // { color: theme.neutral1 }
-            ]}
+            style={[styles.text, styles.greyText, { color: theme.neutral1 }]}
           >
             Já possui uma conta?
           </Text>

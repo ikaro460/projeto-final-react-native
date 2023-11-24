@@ -108,16 +108,16 @@ export default function Login() {
             </Text>
           </Pressable>
         </Text>
-        <View style={styles.inputs}>
+        <View>
           <TextInput
-            style={[styles.input, styles.text]}
+            style={[styles.input, { color: theme.primaryBlack }]}
             placeholder="Seu email de acesso"
             placeholderTextColor={theme.neutral1}
             value={login}
             onChangeText={(text) => setLogin(text)}
           />
           <TextInput
-            style={[styles.input, styles.text]}
+            style={[styles.input, { color: theme.primaryBlack }]}
             placeholder="Senha"
             placeholderTextColor={theme.neutral1}
             secureTextEntry

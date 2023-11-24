@@ -109,11 +109,7 @@ export default function CadastroProduto() {
 
         <View style={styles.greyTxtCtn}>
           <Text
-            style={[
-              styles.text,
-              styles.greyText,
-              // { color: theme.neutral1 }
-            ]}
+            style={[styles.text, styles.greyText, { color: theme.neutral1 }]}
           >
             Já possui uma conta?
           </Text>
@@ -149,7 +145,9 @@ export default function CadastroProduto() {
         />
 
         <Pressable style={styles.inputContainer} onPress={handleImageUpload}>
-          <Text style={styles.input}>Selecionar Imagem</Text>
+          <Text style={[styles.input, { color: theme.primaryBlack }]}>
+            Selecionar Imagem
+          </Text>
         </Pressable>
 
         <Pressable

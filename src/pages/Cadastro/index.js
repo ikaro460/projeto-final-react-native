@@ -98,11 +98,7 @@ export default function Cadastro() {
 
         <View style={styles.greyTxtCtn}>
           <Text
-            style={[
-              styles.text,
-              styles.greyText,
-              // { color: theme.neutral1 }
-            ]}
+            style={[styles.text, styles.greyText, { color: theme.neutral1 }]}
           >
             Já possui uma conta?
           </Text>
@@ -113,21 +109,21 @@ export default function Cadastro() {
           </Pressable>
         </View>
         <TextInput
-          style={[styles.input, styles.text, { color: theme.primaryBlack }]}
+          style={[styles.input, { color: theme.primaryBlack }]}
           placeholder="Seu nome completo"
           placeholderTextColor={theme.neutral1}
           value={formData.nome}
           onChange={(e) => setFormData({ ...formData, nome: e.target.value })}
         />
         <TextInput
-          style={[styles.input, styles.text, { color: theme.primaryBlack }]}
+          style={[styles.input, { color: theme.primaryBlack }]}
           placeholder="Seu email de acesso"
           placeholderTextColor={theme.neutral1}
           value={formData.email}
           onChange={(e) => setFormData({ ...formData, email: e.target.value })}
         />
         <TextInput
-          style={[styles.input, styles.text, { color: theme.primaryBlack }]}
+          style={[styles.input, { color: theme.primaryBlack }]}
           placeholder="Senha"
           placeholderTextColor={theme.neutral1}
           value={formData.senha}
